@@ -72,6 +72,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// This route will be found at http://localhost:3001/api/users/login in the browser
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
@@ -83,7 +84,7 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
-
+// Because the below instance method returns a Boolean, we can use it in a conditional statement to verify whether the user has been verified or not.
     const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
