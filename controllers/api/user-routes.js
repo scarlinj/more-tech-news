@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
     });
 });
 
+// get user by id
+// GET /api/users/1
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -53,6 +55,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// create a user
 router.post('/', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
@@ -92,10 +95,12 @@ router.post('/login', (req, res) => {
   });
 });
 
+// update existing user data
+// PUT /api/users/1
 router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
-  // pass in req.body instead to only update what's passed through
+  // if req.body has exact key/value pairs to match the model, pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -115,6 +120,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// delete a user from database
+// DELETE /api/users/1
 router.delete('/:id', (req, res) => {
   User.destroy({
     where: {
