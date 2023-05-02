@@ -101,6 +101,7 @@ router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // if req.body has exact key/value pairs to match the model, pass in req.body instead to only update what's passed through
+  // Sequelize documentation shows to use individualHooks: true, in order to emit hooks for each individual record, along with the bulk hooks
   User.update(req.body, {
     individualHooks: true,
     where: {
