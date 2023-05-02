@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Vote extends Model {}
 
+// with these columns in place, we can track the posts that users vote on
 Vote.init(
   {
     id: {
