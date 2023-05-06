@@ -25,6 +25,12 @@ User.init(
       // turn on auto increment
       autoIncrement: true
     },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id'
+    //   }},
     // define a username column
     username: {
       type: DataTypes.STRING,
