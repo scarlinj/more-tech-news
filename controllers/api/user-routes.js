@@ -64,18 +64,29 @@ router.post('/', (req, res) => {
     email: req.body.email,
     password: req.body.password
   })
+    // the below gives our server easy access to the user's user_id, username, and a Boolean describing whether or not the user is logged in.
     .then(dbUserData => {
       res.json(dbUserData);
+      req.session.save(() => {
+        // declare session variables
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        // Boolean describing whether or not the user is logged in
+        req.session.loggedIn = true;
+        
+        // res.json(dbUserData);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
+  });
 });
 
 // This route will be found at http://localhost:3001/api/users/login in the browser
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  {{
   User.findOne({
     where: {
       email: req.body.email
@@ -85,16 +96,42 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
-// Because the below instance method returns a Boolean, we can use it in a conditional statement to verify whether the user has been verified or not.
-    const validPassword = dbUserData.checkPassword(req.body.password);
+  // Because the below instance method returns a Boolean, we can use it in a conditional statement to verify whether the user has been verified or not.
+  const validPassword = dbUserData.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password!' });
-      return;
-    }
+  if (!validPassword) {
+    res.status(400).json({ message: 'Incorrect password!' });
+    return;
+  }
+
+  req.session.save(() => {
+    // declare session variables
+    req.session.user_id = dbUserData.id;
+    req.session.username = dbUserData.username;
+    req.session.loggedIn = true;
 
     res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
   });
+};
+  } 
+  // catch (err) {
+  //   console.log(err);
+  //   res.status(500).json(err);
+  // }
+});
+
+router.post('/logout', (req, res) => {
+  // send back a 204 status after session destroyed
+  if (req.session.loggedIn) {
+      req.session.destroy(() => {
+      res.status(204).end();
+      console.log("user has logged out.")
+      });
+  }
+  else {
+      res.status(404).end();
+  }
 });
 
 // update existing user data
@@ -103,7 +140,7 @@ router.put('/:id', (req, res) => {
   // expects {username: 'scarlinj', email: 'scarlinj@gmail.com', password: 'password'}
 
   // if req.body has exact key/value pairs to match the model, pass in req.body instead to only update what's passed through
-  // Sequelize documentation shows to use individualHooks: true, in order to emit hooks for each individual record, along with the bulk hooks
+  // Sequelize documentation shows to use individualHooks: true, in order to use hooks for each individual record, along with the bulk hooks
   User.update(req.body, {
     individualHooks: true,
     where: {
