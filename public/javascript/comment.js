@@ -6,7 +6,9 @@ async function commentFormHandler(event) {
     const post_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
-  
+    
+    console.log(comment_text, post_id);
+    
     // need to declare two variables when the form is submitted: the post id from the URL (as we were doing earlier) and the value of the <textarea> element
     if (comment_text) {
     const response = await fetch('/api/comments', {
