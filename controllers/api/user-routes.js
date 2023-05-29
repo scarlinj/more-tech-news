@@ -71,6 +71,7 @@ router.post('/', (req, res) => {
         // declare session variables
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
+        // Boolean describing whether or not the user is logged in
         req.session.loggedIn = true;
         
         // res.json(dbUserData);
