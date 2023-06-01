@@ -11,6 +11,7 @@
     <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
 </div>
 
+{{#if loggedIn}}
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
@@ -21,6 +22,8 @@
     <button type="button" class="upvote-btn">upvote</button>
   </div>
 </form>
+
+{{/if}}
 
 {{> comments post.comments}}
 
