@@ -7,7 +7,7 @@ body, html {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: #333;
+  color: #225ca3;
 }
 
 a {
@@ -44,7 +44,7 @@ button:hover {
 textarea, input {
   padding: .5%;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #ff5555;
 }
 
 textarea:focus, input:focus {
@@ -75,7 +75,8 @@ form label {
 }
 
 header {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 5px solid #cccccc60;
+  background-color: #baf7de;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +84,8 @@ header {
 }
 
 header h1 {
-  font-size: 1em;
+  font-size: 200%;
+  color: #225ca3;
 }
 
 main {

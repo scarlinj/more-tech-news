@@ -1,27 +1,12 @@
 {{#if loggedIn}}
-<section>
-  <h2>Create New Post</h2>
-
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+    <div class="meta">
+      Hi there, {{user.username}} !  See your post history below.
     </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-  <br>
-</section>
-{{else}}
-<h3> Please log in to submit a post. </h3>
 {{/if}}
 
-{{#if posts.length}}
 <section>
   <h2>Your Posts</h2>
+  {{#if posts.length}}
   <ol>
     {{#each posts as |post|}}
     <li>
@@ -30,22 +15,28 @@
     </li>
     {{/each}}
   </ol>
+   {{else}}
+    <li>You have no posts</li>
 </section>
 {{/if}}
 
-{{#if comments.length}}
+
 <section>
   <h2>Your Comments</h2>
+  {{#if comments.length}}
     <ol>
       {{#each comments as |comment|}}
       <li>
-        {{> comment-info comment}}
+        {{> comments user.comment}}
         <a href="/dashboard/edit/{{comment.id}}" class="edit-link">Edit comment</a>
       </li>
       {{/each}}
     </ol>
+    {{else}}
+    <li>You have no comments</li>
+    {{/if}}
 </section>
-{{/if}}
+
 
 <script src="/javascript/add-post.js"></script>
 <script src="/javascript/comment.js"></script>

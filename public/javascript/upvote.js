@@ -16,9 +16,10 @@ async function upvoteClickHandler(event) {
         });
         
         if (response.ok) {
-        document.location.reload();
+            return res.json();
+            document.location.reload();
         } else {
-        alert(response.statusText);
+            alert(response.statusText);
         }
 }
 document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
