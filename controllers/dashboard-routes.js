@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) =>{
     console.log(req.session);
+    // get all posts from user
     Post.findAll({
         where: {
         // use the ID from the session
@@ -74,12 +75,54 @@ router.get('/edit/:id', withAuth, (req, res) =>{
         .then(dbPostData => {
         // serialize data before passing to template
         const posts = dbPostData.map(post => dbPostData.get({ plain: true }));
-        res.render('edit-post', { posts, loggedIn: true });
+        res.render('edit-post', { post, loggedIn: true });
         })
         .catch(err => {
         console.log(err);
         res.status(500).json(err);
         }); 
 });
+
+router.get('/', withAuth, (req, res) =>{
+    console.log(req.session);
+    // get all posts from user
+    Comment.findAll({
+        where: {
+        // use the ID from the session
+        user_id: req.session.user_id
+        },
+        attributes: [
+        'id',
+        'post_url',
+        'title',
+        'created_at',
+        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        ],
+        include: [
+        {
+            model: Post,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+            model: User,
+            attributes: ['username']
+            }
+        },
+        {
+            model: User,
+            attributes: ['username']
+        }
+        ]
+    })
+        .then(dbCommentData => {
+        // serialize data before passing to template
+        const comments = dbCommentData.map(comment => comment.get({ plain: true }));
+        res.render('dashboard', { comments, loggedIn: true });
+        })
+        .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+        }); 
+});
+
 
 module.exports = router;

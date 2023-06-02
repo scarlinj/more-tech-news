@@ -22,7 +22,7 @@ This is a tech news website where users can post, upvote, and comment on links t
 
 See a screenshot for the site below:
 
-![Image of the homepage](/images/MoreTechNews%20Homepage.JPG)
+![Image of the homepage](./public/images/MoreTechNews%20Homepage.JPG)
 
 ## Features
 
@@ -32,9 +32,9 @@ The homepage is a feed of the current site and posts.  Click each header to open
 
 Create an account to make a post, add a comment, or delete your posts/comments.  You can freely browse the content within the site.
 
-![Image of Create Post page](/images/CreatePost.JPG)
+![Image of Create Post page](./public/images/CreatePost.JPG)
 
-![Image of Post page with comments](/images/Comment%20and%20Vote%20on%20Posts.JPG)
+![Image of Post page with comments](./public/images/Comment%20and%20Vote%20on%20Posts.JPG)
 
 ## User Story
 

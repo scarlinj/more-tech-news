@@ -1,6 +1,6 @@
 {{#if loggedIn}}
     <div class="meta">
-      Hi there, {{user.username}} !  See your post history below.
+      Hi there, {{username}} !  See your post history below.
     </div>
 {{/if}}
 
@@ -27,7 +27,7 @@
     <ol>
       {{#each comments as |comment|}}
       <li>
-        {{> comments user.comment}}
+        {{> comment user.comments}}
         <a href="/dashboard/edit/{{comment.id}}" class="edit-link">Edit comment</a>
       </li>
       {{/each}}
@@ -40,3 +40,4 @@
 
 <script src="/javascript/add-post.js"></script>
 <script src="/javascript/comment.js"></script>
+<script src="/javascript/login.js"></script>

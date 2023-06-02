@@ -42,12 +42,12 @@ if (email && password) {
     });
 
     if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/dashboard/');
     } else {
     alert(response.statusText);
     }
 }
 };
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
