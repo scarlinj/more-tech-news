@@ -26,7 +26,7 @@ See a screenshot for the site below:
 
 ## Features
 
-The homepage is a feed of the current site and posts.  Click each header to open each post, or otherwise click to open the comments.  You need to log in to create a post or comment.
+The homepage is a feed of the current site and posts.  Click each header to open the post, or otherwise click to open the comments.  You need to log in to create a post or comment.
 
 ### Usage
 
@@ -34,7 +34,7 @@ Create an account to make a post, add a comment, or delete your posts/comments. 
 
 ![Image of Create Post page](./public/images/CreatePost.JPG)
 
-![Image of Post page with comments](./public/images/Comment%20and%20Vote%20on%20Posts.JPG)
+![Image of Post page with comments](./public/images/MoreTechNews%20Post%20with%20Comments.JPG)
 
 ## User Story
 
@@ -44,9 +44,10 @@ As a technology enthusiast, I want to join a community to keep up to date on the
 
 Technologies used include:
 - Javascript
-- Node.js
+- Handlebars.js
+- Express.js
 - Sequelize
-- MySQL
+- Sessions
 - bcrypt
 
 ## Credits

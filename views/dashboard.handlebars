@@ -1,6 +1,6 @@
 {{#if loggedIn}}
-    <div class="meta">
-      Hi there, {{username}} !  See your post history below.
+    <div class="meta" a href="/dashboard">
+      Hi there, {{user.username}} !  See your post history below.
     </div>
 {{/if}}
 
@@ -11,7 +11,7 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/edit/{{post.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>

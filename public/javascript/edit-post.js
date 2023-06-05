@@ -1,7 +1,7 @@
 async function editFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title"]').value;
+    const title = document.querySelector('input[name="post-title"]').value.trim();
     // const post_url = document.querySelector('input[name="post-url"]').value;
     // identify the id of the post to edit
     const id = window.location.toString().split('/')[
