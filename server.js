@@ -1,7 +1,9 @@
+require("dotenv").config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const mongoose = require('mongoose');
 const helpers = require('./utils/helpers');
 
 // add PORT before app
@@ -27,12 +29,6 @@ const sess = {
 // pass helpers into handlebars
 const hbs = exphbs.create({ helpers });
 
-// set up server in Mongoose
-// mongoose.connect(MONGODB_URI || 'mongodb://0.0.0.0/more-tech-news', {
-//   userNewUrlParser: true,
-//   useFindAndModify: false,
-// });
-
 // configure express with database 
 app.use(session(sess));
 
@@ -43,7 +39,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/images", express.static(path.join(__dirname, "/public/images")));
-// app.use('/api', apiRoutes);
+
+// set up server in Mongoose
+mongoose.connect(MONGODB_URI || 'mongodb://0.0.0.0/more-tech-news', {
+  // // as of 2022, the below are no longer supported in Mongoose
+  // userNewUrlParser: true,
+  // useFindAndModify: false,
+});
 
 // add routes
 app.use(require('./controllers'));
