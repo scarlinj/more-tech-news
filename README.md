@@ -18,7 +18,7 @@
 ## About / Synopsis
 
 This is a tech news website where users can post, upvote, and comment on links to news articles.  
-* to update with the new website location: You can find the deployed application [Here]().
+* to update with the new website location: You can find the deployed application [Here](https://arcane-river-42807.herokuapp.com/).
 
 See a screenshot for the site below:
 
