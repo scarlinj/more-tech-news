@@ -6,6 +6,7 @@ const helpers = require('./utils/helpers');
 
 // add PORT before app
 const PORT = process.env.PORT || 3001;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://0.0.0.0/more-tech-news";
 const app = express();
 
 const sequelize = require('./config/connection');
@@ -27,10 +28,10 @@ const sess = {
 const hbs = exphbs.create({ helpers });
 
 // set up server in Mongoose
-// mongoose.connect(MONGODB_URI || 'mongodb://localhost/more-tech-news', {
-//   userNewUrlParser: true,
-//   useFindAndModify: false,
-// });
+mongoose.connect(MONGODB_URI || 'mongodb://0.0.0.0/more-tech-news', {
+  userNewUrlParser: true,
+  useFindAndModify: false,
+});
 
 // configure express with database 
 app.use(session(sess));
