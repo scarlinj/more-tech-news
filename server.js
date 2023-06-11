@@ -28,10 +28,10 @@ const sess = {
 const hbs = exphbs.create({ helpers });
 
 // set up server in Mongoose
-mongoose.connect(MONGODB_URI || 'mongodb://0.0.0.0/more-tech-news', {
-  userNewUrlParser: true,
-  useFindAndModify: false,
-});
+// mongoose.connect(MONGODB_URI || 'mongodb://0.0.0.0/more-tech-news', {
+//   userNewUrlParser: true,
+//   useFindAndModify: false,
+// });
 
 // configure express with database 
 app.use(session(sess));
