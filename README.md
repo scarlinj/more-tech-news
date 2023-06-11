@@ -51,6 +51,10 @@ Technologies used include:
 - Sessions
 - bcrypt
 
+## Tips
+
+I had trouble etting up Heroku after multiple tries.  I fixed the error after using the command "heroku buildpacks:set heroku/nodejs".
+
 ## Credits
 
 - https://sequelize.org/
