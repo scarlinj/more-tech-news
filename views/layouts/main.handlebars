@@ -22,7 +22,7 @@
     <nav>
       {{!-- user.username at least needs to be in quotes so it's understood as a string value/literal --}}
       {{#if loggedIn}}
-      <a href="/dashboard"> Profile </a>
+      <a href="/dashboard"> {{{user.username}}} Profile </a>
       <button id="logout" class="btn-no-style">logout</button>
       {{else}}
       <a href="/login">login</a>

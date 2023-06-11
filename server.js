@@ -25,6 +25,12 @@ const sess = {
 // pass helpers into handlebars
 const hbs = exphbs.create({ helpers });
 
+// set up server in Mongoose
+// mongoose.connect(MONGODB_URI || 'mongodb://localhost/more-tech-news', {
+//   userNewUrlParser: true,
+//   useFindAndModify: false,
+// });
+
 // configure express with database 
 app.use(session(sess));
 

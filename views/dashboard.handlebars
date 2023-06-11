@@ -11,7 +11,7 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/post/edit/{{id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>
@@ -28,7 +28,7 @@
       {{#each comments as |comment|}}
       <li>
         {{> comment user.comments}}
-        <a href="/dashboard/edit/{{comment.id}}" class="edit-link">Edit comment</a>
+        <a href="/edit/{{comment.id}}" class="edit-link">Edit comment</a>
       </li>
       {{/each}}
     </ol>
@@ -39,5 +39,7 @@
 
 
 <script src="/javascript/add-post.js"></script>
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/login.js"></script>
