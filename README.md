@@ -44,6 +44,7 @@ As a technology enthusiast, I want to join a community to keep up to date on the
 
 Technologies used include:
 - Javascript
+- Node.js
 - Handlebars.js
 - Express.js
 - Sequelize
