@@ -8,7 +8,7 @@ const helpers = require('./utils/helpers');
 
 // add PORT before app
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1/more-tech-news";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/";
 const app = express();
 
 const sequelize = require('./config/connection');
