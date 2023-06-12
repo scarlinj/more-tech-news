@@ -4,9 +4,12 @@
   "description": "This is another technology news website where users can post, upvote, and comment on links to news articles. This manages objects using JavaScript and translates the code into database schema and queries using SQL.  I created this to demonstrate Object Relational Mapping through the Sequelize ORM library.",
   "main": "server.js",
   "scripts": {
+    "webpack": "webpack --watch",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seeds": "node seeds/index.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "lite-server": "lite-server"
   },
   "author": "",
   "license": "ISC",
@@ -21,8 +24,10 @@
     "mongoose": "^7.2.3",
     "morgan": "^1.10.0",
     "mysql2": "^3.3.4",
-    "node": "^18.14.2",
+    "node": "^18.x",
+    "scripts": "^0.1.0",
     "sequelize": "^6.32.0",
-    "serve": "^14.2.0"
+    "serve": "^14.2.0",
+    "webpack": "^5.86.0"
   }
 }
