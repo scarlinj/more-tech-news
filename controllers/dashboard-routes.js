@@ -45,17 +45,17 @@ router.get('/', withAuth, (req, res) =>{
 });
 
 router.get('/edit/:id', withAuth, (req, res) =>{
+    console.log(req.session);
     // In Sequelize v5, findById() was replaced by findByPk()
     Post.findByPk(
         // use the ID of the post
         req.params.id, {
-
-        attributes: [
-        'id',
-        'post_url',
-        'title',
-        'created_at',
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            attributes: [
+            'id',
+            'post_url',
+            'title',
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
         include: [
         {
@@ -91,46 +91,45 @@ router.get('/edit/:id', withAuth, (req, res) =>{
         }); 
 });
 
-// router.get('/', withAuth, (req, res) =>{
-//     console.log(req.session);
-//     // get all posts from user
-//     Comment.findAll({
-//         where: {
-//         // use the ID from the session
-//         user_id: req.session.user_id
-//         },
-//         attributes: [
-//         'id',
-//         'post_url',
-//         'title',
-//         'created_at',
-//         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-//         ],
-//         include: [
-//         {
-//             model: Post,
-//             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//             include: {
-//             model: User,
-//             attributes: ['username']
-//             }
-//         },
-//         {
-//             model: User,
-//             attributes: ['username']
-//         }
-//         ]
-//     })
-//         .then(dbCommentData => {
-//         // serialize data before passing to template
-//         const comments = dbCommentData.map(comment => comment.get({ plain: true }));
-//         res.render('dashboard', { comments, loggedIn: true });
-//         })
-//         .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//         }); 
-// });
+router.get('/', withAuth, (req, res) =>{
+    console.log(req.session);
+    // get all comments from user
+    Comment.findAll({
+        where: {
+        // use the ID from the session
+        user_id: req.session.user_id
+        },
+        attributes: [
+        'id',
+        'post_url',
+        'title',
+        'created_at'
+        ],
+        include: [
+        {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+            model: User,
+            attributes: ['username']
+            }
+        },
+        {
+            model: User,
+            attributes: ['username']
+        }
+        ]
+    })
+        .then(dbCommentData => {
+        // serialize data before passing to template
+        const comments = dbCommentData.map(comment => comment.get({ plain: true }));
+        res.render('dashboard', { comments, loggedIn: true });
+        })
+        .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+        }); 
+});
 
 
 module.exports = router;
