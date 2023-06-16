@@ -1,6 +1,6 @@
 {{#if loggedIn}}
     <div class="meta" a href="/dashboard">
-      Hi there, {{user.username}} !  See your post history below.
+      Hi there, {{req.session.username}} !  See your post history below.
     </div>
 {{/if}}
 
@@ -37,9 +37,9 @@
     {{/if}}
 </section>
 
-
+{{!-- only include what will be used on this handlebar/page --}}
 <script src="/javascript/add-post.js"></script>
 <script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
+{{!-- <script src="/javascript/delete-post.js"></script> --}}
 <script src="/javascript/comment.js"></script>
-<script src="/javascript/login.js"></script>
+{{!-- <script src="/javascript/login.js"></script> --}}

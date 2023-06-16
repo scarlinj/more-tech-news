@@ -4,8 +4,8 @@ const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
-router.get('/', (req, res) => {
-  console.log('======================');
+router.get('/', (req, res, next) => {
+  console.log(req.session);
   Post.findAll({
     attributes: [
       'id',
@@ -28,7 +28,8 @@ router.get('/', (req, res) => {
         model: User,
         attributes: ['username']
       }
-    ]
+    ],
+    next
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -51,16 +52,16 @@ router.get('/:id', (req, res) => {
     ],
     include: [
       {
+        model: User,
+        attributes: ['username']
+      },
+      {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
       }
     ]
   })
@@ -125,7 +126,7 @@ router.put('/upvote', withAuth, (req, res) => {
   if (req.session) {
   // Post.upvote({ user_id: req.session.user_id }, { Vote, Comment, User })
   // pass session id along with all destructured properties on req.body
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+  Post.upvote({ ...req.body, withAuth, user_id: req.session.user_id }, { Vote, Comment, User })
     .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
       console.log(err);
@@ -134,6 +135,7 @@ router.put('/upvote', withAuth, (req, res) => {
 }});
 
 router.put('/:id', withAuth, (req, res) => {
+  if (req.session) {
   Post.update(
     {
       title: req.body.title
@@ -155,7 +157,7 @@ router.put('/:id', withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+}});
 
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
