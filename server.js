@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 // add PORT before app - dynamically set PORT as a variable for Heroku to configure automatically - leave this open variable as PORT
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/";
-const app = express();
+app = express();
 
 const sequelize = require('./config/connection');
 
