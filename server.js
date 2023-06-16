@@ -44,6 +44,7 @@ app.use("/images", express.static(path.join(__dirname, "/public/images")));
 // set up server in Mongoose
 mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news', {
   // // as of 2022, the below are no longer supported in Mongoose.  Will prevent app from starting.
+  catch(error => handleError(error))
   // userNewUrlParser: true,
   // useFindAndModify: false,
 });
