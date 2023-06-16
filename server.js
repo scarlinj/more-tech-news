@@ -43,7 +43,7 @@ app.use("/images", express.static(path.join(__dirname, "/public/images")));
 
 // set up server in Mongoose - use mongodb://127.0.0.1:27017/app-name as of 2023
 try {
-await mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news');
+mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news');
 } catch(error) {
     handleError(error);
   // // as of 2022, the below are no longer supported in Mongoose.  Will prevent app from starting.
