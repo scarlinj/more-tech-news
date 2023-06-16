@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 // add PORT before app - dynamically set PORT as a variable for Heroku to configure automatically - leave this open variable as PORT
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/";
-app = express();
+const app = express();
 
 const sequelize = require('./config/connection');
 
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/images", express.static(path.join(__dirname, "/public/images")));
 
 // set up server in Mongoose
-mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news', {
+mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1/more-tech-news', {
   // // as of 2022, the below are no longer supported in Mongoose.  Will prevent app from starting.
   // userNewUrlParser: true,
   // useFindAndModify: false,
@@ -60,5 +60,3 @@ sequelize.sync({
     force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
-
-// SequelizeStore.sync()
