@@ -8,6 +8,7 @@
 >   - [Table of contents](#table-of-contents)
 >   - [About / Synopsis](#about--synopsis)
 >   - [Features](#features)
+>   - [Future Development] (#future-development)
 >   - [Usage](#usage)
 >   - [User Story](#user-story)
 >   - [Technology](#technology)
@@ -27,6 +28,10 @@ See a screenshot for the site below:
 ## Features
 
 The homepage is a feed of the current site and posts.  Click each header to open the post, or otherwise click to open the comments.  You need to log in to create a post or comment.
+
+## Future Development
+
+The edit feature is not currently functional.  I will add this ability in the future.
 
 ### Usage
 
