@@ -31,7 +31,7 @@ The homepage is a feed of the current site and posts.  Click each header to open
 
 ## Future Development
 
-The edit feature is not currently functional.  I will add this ability in the future.
+The edit feature is not currently functional.  I will add these in the future.
 
 ### Usage
 

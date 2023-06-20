@@ -46,6 +46,12 @@ router.get('/', withAuth, (req, res) =>{
 
 router.get('/edit/:id', withAuth, (req, res) =>{
     console.log(req.session);
+    const post = dbPostData.get({ plain: true});
+    
+    res.render('edit-post', {
+        post,
+        loggedIn: true
+    },
     // In Sequelize v5, findById() was replaced by findByPk()
     Post.findByPk(
         // use the ID of the post
@@ -89,7 +95,8 @@ router.get('/edit/:id', withAuth, (req, res) =>{
         .catch(err => {
         // console.log(err);
         res.status(500).json(err);
-        }); 
+        })
+    );
 });
 
 // router.get('/', withAuth, (req, res) =>{
