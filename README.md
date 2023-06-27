@@ -8,7 +8,7 @@
 >   - [Table of contents](#table-of-contents)
 >   - [About / Synopsis](#about--synopsis)
 >   - [Features](#features)
->   - [Future Development] (#future-development)
+>   - [Future Development](#future-development)
 >   - [Usage](#usage)
 >   - [User Story](#user-story)
 >   - [Technology](#technology)
