@@ -18,7 +18,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -45,7 +45,7 @@ app.use('/images', express.static(path.join(__dirname, '/public/images')));
     // for deploy, use in pakage.json "start": MONGODB_URI=http://localhost:27017 node server.js
     // the above did not work 6-27-2023
 try {
-mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news');
+mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news', { useNewUrlParser: true });
 } catch(error) {
     handleError(error);
   // // as of 2022, the below are no longer supported in Mongoose.  Will prevent app from starting.
