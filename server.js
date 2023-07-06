@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 
 // add PORT before app - dynamically set PORT as a variable for Heroku to configure automatically - leave this open variable as PORT
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/";
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/';
 const app = express();
 
 const sequelize = require('./config/connection');
@@ -39,9 +39,11 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/images", express.static(path.join(__dirname, "/public/images")));
+app.use('/images', express.static(path.join(__dirname, '/public/images')));
 
 // set up server in Mongoose - use mongodb://127.0.0.1:27017/app-name as of 2023
+    // for deploy, use in pakage.json "start": MONGODB_URI=http://localhost:27017 node server.js
+    // the above did not work 6-27-2023
 try {
 mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news');
 } catch(error) {
