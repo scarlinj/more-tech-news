@@ -3,6 +3,8 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const fs = require('fs');
 const mongoose = require('mongoose');
 const helpers = require('./utils/helpers');
 const bcrypt = require('bcrypt');
@@ -45,7 +47,7 @@ app.use('/images', express.static(path.join(__dirname, '/public/images')));
     // for deploy, use in pakage.json "start": MONGODB_URI=http://localhost:27017 node server.js
     // the above did not work 6-27-2023
 try {
-mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news', { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/more-tech-news');
 } catch(error) {
     handleError(error);
   // // as of 2022, the below are no longer supported in Mongoose.  Will prevent app from starting.

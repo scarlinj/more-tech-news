@@ -1,0 +1,2 @@
+Issue because you have both JawsDB and MongoDB?  When you deployed 7/13, get error for "AtlasError" "Authentication failed"
+    - wrong password?  Tried typing in various passwords you used for the db, for MongoDB, etc., but nothing worked.
