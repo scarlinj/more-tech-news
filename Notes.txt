@@ -1,2 +1,8 @@
 Issue because you have both JawsDB and MongoDB?  When you deployed 7/13, get error for "AtlasError" "Authentication failed"
     - wrong password?  Tried typing in various passwords you used for the db, for MongoDB, etc., but nothing worked.
+
+Changed to run on localhost 7/16/2023 - was able to connect, but couldn't create users.
+Changed back to run on mongodb server.  Atlas error shows the username/password combo are incorrect ("Handshake error").  Create a new user account and connect through that?
+Tried re-copying the existing username/pw, but still receive the handshake error. 
+- next: create a new user for the database and use that.  See https://www.mongodb.com/community/forums/t/bad-auth-authentication-failed/15178
+-
