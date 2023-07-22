@@ -19,7 +19,7 @@
 ## About / Synopsis
 
 This is a tech news website where users can post, upvote, and comment on links to news articles.  
-* to update with the new website location: You can find the deployed application [Here](https://dashboard.heroku.com/apps/more-tech-frozen-tundra-12598).
+* to update with the new website location: You can find the deployed application [Here](https://more-tech-frozen-tundra-12598.herokuapp.com/).
 
 See a screenshot for the site below:
 
