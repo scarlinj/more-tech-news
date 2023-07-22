@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const helpers = require('./utils/helpers');
 const bcrypt = require('bcrypt');
 // const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://user1:4MPIrysMLIPSBFbh@cluster0.f4cqg6h.mongodb.net/?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://<Mongo user>:<password>@cluster0.f4cqg6h.mongodb.net/?retryWrites=true&w=majority";
 
 
 // add PORT before app - dynamically set PORT as a variable for Heroku to configure automatically - leave this open variable as PORT
