@@ -58,7 +58,7 @@ Technologies used include:
 
 ## Tips
 
-I had trouble etting up Heroku after multiple tries.  I fixed the error after using the command "heroku buildpacks:set heroku/nodejs".
+I had trouble etting up Heroku after multiple tries.  I fixed the error after using the command "heroku buildpacks:set heroku/nodejs".  To ensure the connection to JawsDB is correct, since my secret is in a file not uploaded to heroku, I add the secret within Heroku in the config vars.
 
 ## Credits
 
