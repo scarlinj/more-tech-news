@@ -49,6 +49,6 @@ if (email && password) {
 }
 };
 
-
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+// below cannot be read - already called these above within consts and in .hbs file
+// document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+// document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
