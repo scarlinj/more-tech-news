@@ -50,5 +50,6 @@ if (email && password) {
 };
 
 // below cannot be read - already called these above within consts and in .hbs file
-// document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-// document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+// as of 10/8/2023, removing these prevented log-in from redirecting to homepage.  Added back the below and was able to get it working.
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

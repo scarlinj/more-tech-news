@@ -58,7 +58,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 // create a user
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     username: req.body.username,
@@ -126,8 +126,8 @@ router.post('/logout', withAuth, (req, res) => {
   // send back a 204 status after session destroyed
   if (req.session.loggedIn) {
       req.session.destroy(() => {
-      res.status(204).end();
-      console.log("user has logged out.")
+        res.status(204).end();
+        console.log("user has logged out.")
       });
   }
   else {
