@@ -18,6 +18,7 @@ router.get('/', withAuth, (req, res) =>{
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
+        order: [['created_at', 'DESC']],
         include: [
         {
             model: Comment,
@@ -45,8 +46,9 @@ router.get('/', withAuth, (req, res) =>{
 });
 
 router.get('/edit/:id', withAuth, (req, res) =>{
-    // In Sequelize v5, findById() was replaced by findByPk()
-    Post.findByPk(
+    // In Sequelize v5, findById() was replaced by findByPk() - not working as of 10/8.  Switched backt o Post.findOne
+    // Post.findByPk(
+    Post.findOne(
         // use the ID of the post
         req.params.id, {
 
@@ -78,9 +80,10 @@ router.get('/edit/:id', withAuth, (req, res) =>{
         // const posts = dbPostData.map(post => dbPostData.get({ plain: true }));
         if (dbPostData) {
         const post = dbPostData.get({ plain: true });
-        res.render('edit-post', 
-        {   post, 
-            loggedIn: true });
+        res.render('edit-post', {   
+            post, 
+            loggedIn: true 
+        });
         } else {
             res.status(404).end();
         }

@@ -11,7 +11,8 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/post/edit/{{id}}" class="edit-link">Edit post</a>
+      <a href="/posts/edit/{{id}}" class="edit-link">Edit post</a>
+      <a href="/posts/delete/{{id}}" class="delete-link">Delete post</a>
     </li>
     {{/each}}
   </ol>
