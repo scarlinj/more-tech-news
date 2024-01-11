@@ -94,6 +94,7 @@ router.post('/', withAuth, (req, res) => {
 
 // PUT /api/posts/upvote
 router.put('/upvote', withAuth, (req, res) => {
+// below vote.create coding consolidated into the Post.upvote code at line 130
 //   Vote.create({
 //     user_id: req.body.user_id,
 //     post_id: req.body.post_id
