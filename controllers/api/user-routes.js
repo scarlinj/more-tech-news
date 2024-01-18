@@ -77,6 +77,7 @@ router.post('/', (req, res) => {
         
         // res.json(dbUserData);
     })
+    // have error for undefined (reading "catch").  Do you need to define this?  Look at examples of try/catch.
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
