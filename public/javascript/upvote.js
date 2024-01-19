@@ -16,8 +16,8 @@ async function upvoteClickHandler(event) {
         });
         
         if (response.ok) {
-            return response.json();
             document.location.reload();
+            return response.json();
         } else {
             alert(response.statusText);
         }
