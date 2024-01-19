@@ -28,7 +28,7 @@
       {{#each comments as |comment|}}
       <li>
         {{> comment user.comments}}
-        <a href="/edit/{{comment.id}}" class="edit-link">Edit comment</a>
+        <a href="/dashboard/edit/{{comment.id}}" class="edit-link">Edit comment</a>
       </li>
       {{/each}}
     </ol>
