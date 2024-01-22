@@ -15,9 +15,10 @@ if (email && password) {
     });
 
     if (response.ok) {
-    document.location.replace('/dashboard/');
+        document.location.replace('/dashboard/');
+        console.log('You are now logged in.');
     } else {
-    alert(response.statusText);
+        alert(response.statusText);
     }
 }
 };
