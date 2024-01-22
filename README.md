@@ -31,7 +31,7 @@ The homepage is a feed of the current site and posts.  Click each header to open
 
 ## Future Development
 
-The edit feature is not currently functional.  I will add these in the future.
+In the future, I can add the ability to edit the URL for each post, instead of just the title.  I also plan to add preview images of the sites posted.
 
 ### Usage
 
