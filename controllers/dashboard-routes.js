@@ -32,6 +32,9 @@ router.get('/', withAuth, (req, res) =>{
             model: User,
             attributes: ['username']
         }
+        ],
+        order: [
+          ['created_at', 'DESC']
         ]
     })
         .then(dbPostData => {
@@ -79,6 +82,9 @@ router.get('/', withAuth, (req, res) =>{
         //     model: User,
         //     attributes: ['username']
         // }
+        ],
+        order: [
+          ['created_at', 'DESC']
         ]
     })
         .then(dbCommentData => {
