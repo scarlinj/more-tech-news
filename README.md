@@ -41,6 +41,17 @@ Create an account to make a post, add a comment, or delete your posts/comments. 
 
 ![Image of Post page with comments](./public/images/MoreTechNews%20Post%20with%20Comments.JPG)
 
+If you want to edit your post, you can do so from your Profile page.
+
+![Edit your post](./public/images/edit-post-1.JPG)
+![Edit your post](./public/images/edit-post-2.JPG)
+![Edit your post](./public/images/edit-post-3.JPG)
+
+You can also just delete the post from your Profile page.
+
+![Delete your post](./public/images/Delete-post-1.JPG)
+![Delete your post](./public/images/Delete-post-2.JPG)
+
 ## User Story
 
 As a technology enthusiast, I want to join a community to keep up to date on the latest technology news.
