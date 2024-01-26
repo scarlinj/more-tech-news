@@ -21,7 +21,6 @@
     "express-session": "^1.17.3",
     "graphql": "^16.7.1",
     "handlebars": "^4.7.7",
-    "heroku-keep-awake": "^1.1.2",
     "mongodb": "^5.7.0",
     "mongoose": "^7.2.4",
     "morgan": "^1.10.0",
