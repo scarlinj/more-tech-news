@@ -9,7 +9,7 @@ const helpers = require('./utils/helpers');
 const bcrypt = require('bcrypt');
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 // const uri = "mongodb+srv://<Mongo user>:<password>@cluster0.f4cqg6h.mongodb.net/?retryWrites=true&w=majority";
-
+const { wakeDyno, wakeDynos } = require('heroku-keep-awake');
 
 // add PORT before app - dynamically set PORT as a variable for Heroku to configure automatically - leave this open variable as PORT
 const PORT = process.env.PORT || 3001;
@@ -33,6 +33,13 @@ const sess = {
 
 // pass helpers into handlebars
 const hbs = exphbs.create({ helpers });
+
+// use heroku-keep-awake to ping server regularly
+app.listen(PORT, () => {
+  wakeDyno(DYNO_URL); // Pass a single dyno url string to keep it awake
+
+  wakeDynos(DYNO_URLS); // Pass an array of Dynos to keep awake
+})
 
 // configure express with database 
 app.use(session(sess));
